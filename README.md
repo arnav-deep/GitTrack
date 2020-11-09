@@ -48,3 +48,7 @@ npm install
 # Run API locally
 node app.js
 ```
+
+## License
+
+MIT License © Arnav Deep, November 2020
