@@ -67,7 +67,7 @@ app.get("/name/:organisation", (req, res) => {
                 });
             });
         });
-        getContributorData.then(() => res.status(200).send(JSON.stringify(outputData, null, 4))); // once async processes are finished, return response.
+        getContributorData.then(() => res.status(200).json(JSON.stringify(outputData, null, 4))); // once async processes are finished, return response.
     })
     .catch((error) => {
         console.error(error)                      // will help with debugging 
