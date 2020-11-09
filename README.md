@@ -30,8 +30,8 @@ Simply send a GET request to the Heroku App link or visit the website with your 
 The Response of the API will give a JSON data like below —
 
 ```
-[{"repo":"it-cert-automation-practice","url":"https://github.com/google/it-cert-automation-practice","forks":11717,"contributors":[{"user":"marga-google","url":"https://github.com/marga-google","contributions":3},{"user":"margamanterola","url":"https://github.com/margamanterola","contributions":1}]},{"repo":"styleguide","url":"https://github.com/google/styleguide","forks":9721,"contributors":[{"user":"IsaacG","url":"https://github.com/IsaacG","contributions":30},{"user":"eglaysher","url":"https://github.com/eglaysher","contributions":25},{"user":"tonyruscoe","url":"https://github.com/tonyruscoe","contributions":19}]}]```
-
+[{"repo":"it-cert-automation-practice","url":"https://github.com/google/it-cert-automation-practice","forks":11717,"contributors":[{"user":"marga-google","url":"https://github.com/marga-google","contributions":3},{"user":"margamanterola","url":"https://github.com/margamanterola","contributions":1}]},{"repo":"styleguide","url":"https://github.com/google/styleguide","forks":9721,"contributors":[{"user":"IsaacG","url":"https://github.com/IsaacG","contributions":30},{"user":"eglaysher","url":"https://github.com/eglaysher","contributions":25},{"user":"tonyruscoe","url":"https://github.com/tonyruscoe","contributions":19}]}]
+```
 
 ## Installation
 
@@ -47,3 +47,4 @@ npm install
 
 # Run API locally
 node app.js
+```
