@@ -1,0 +1,36 @@
+{
+  "name": "gittrack",
+  "version": "1.0.0",
+  "description": "REST API to get contributors of most popular repositories of a user on Github",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnav-deep/GitTrack.git"
+  },
+  "keywords": [
+    "Github",
+    "API",
+    "REST",
+    "Github",
+    "REST",
+    "API"
+  ],
+  "author": "Arnav Deep",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arnav-deep/GitTrack/issues"
+  },
+  "homepage": "https://github.com/arnav-deep/GitTrack#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "@octokit/rest": "^18.0.9",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
