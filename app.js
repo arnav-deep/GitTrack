@@ -12,7 +12,7 @@ const octokit = new Octokit({
     */
 });
 
-const PORT = process.env.PORT || 8088;
+const PORT = process.env.PORT || 8080;
 
 app.get("/name/:organisation", (req, res) => {
 
