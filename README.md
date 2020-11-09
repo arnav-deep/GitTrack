@@ -5,7 +5,7 @@ REST API to get top contributors of most popular repositories of a user or an or
 
 Heroku App link (Organisation Google, n = 2, m = 3) —
 
-```{https://api-gittrack.herokuapp.com/name/google/n=2&m=3}[https://api-gittrack.herokuapp.com/name/google/n=2&m=3]```
+```[https://api-gittrack.herokuapp.com/name/google/n=2&m=3](https://api-gittrack.herokuapp.com/name/google/n=2&m=3)```
 
 ## Usage
 
