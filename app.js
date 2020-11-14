@@ -79,6 +79,12 @@ app.get("/test", (req, res) => {
     res.status(200).send("Everything is up, don't worry.  :)")
 });
 
+app.get("/developer", (req, res) => {
+    devInfo = "Developed by Arnav Deep.\n\n" +
+                "Visit the developer here: https://arnav-deep.github.io/";
+    res.status(200).send(devInfo);
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`); // start running server on PORT set by environment variable
 });
