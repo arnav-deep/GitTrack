@@ -106,6 +106,10 @@ app.get("/developer", (req, res) => {
     });
 });
 
+app.use('/', function (req, res) {
+  res.redirect('/developer');
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`); // start running server on PORT set by environment variable
 });
