@@ -51,4 +51,4 @@ node app.js
 
 ## License
 
-MIT License © Arnav Deep, November 2020
+MIT License © [Arnav Deep](https://arnav-deep.github.io), November 2020

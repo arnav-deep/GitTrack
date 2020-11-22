@@ -2,11 +2,16 @@ require("dotenv").config();
 var express = require("express");
 var app = express();
 
+var fs = require('fs');
+
+var MarkdownIt = require('markdown-it'),
+md = new MarkdownIt();
+
 const { Octokit } = require("@octokit/rest");
 
 const octokit = new Octokit({
     auth: process.env.GITHUB_AUTH_TOKEN,
-    /*  
+    /*
     *   Set your Personal Access Token here directly or in your .env file to remove Github API limit.
     *   Create your token here -> https://github.com/settings/tokens
     */
@@ -42,7 +47,7 @@ app.get("/name/:organisation", (req, res) => {
 
                 octokit.repos.listContributors({
                     owner: organisation,                // username of main repo
-                    repo: repo.name,                    // repository 
+                    repo: repo.name,                    // repository
                     per_page: m,                        // `m` contributors per page
                     page: 1,                            // just the first page with m contributors
                 })
@@ -61,7 +66,7 @@ app.get("/name/:organisation", (req, res) => {
 
                     numOfRepos += 1;
                     if (numOfRepos === totalRepos) {
-                        // Resolve Promise if all repositories data is fetched and response is ready to be sent. 
+                        // Resolve Promise if all repositories data is fetched and response is ready to be sent.
                         resolve();
                     }
                 });
@@ -70,7 +75,7 @@ app.get("/name/:organisation", (req, res) => {
         getContributorData.then(() => res.status(200).json(outputData)); // once async processes are finished, return response.
     })
     .catch((error) => {
-        console.error(error)                      // will help with debugging 
+        console.error(error)                      // will help with debugging
         res.status(400).json("Bad Request");      // return `Bad Request` status code
     });
 });
@@ -80,9 +85,25 @@ app.get("/test", (req, res) => {
 });
 
 app.get("/developer", (req, res) => {
-    devInfo = "Developed by Arnav Deep.\n\n" +
-                "Visit the developer here: https://arnav-deep.github.io/";
-    res.status(200).send(devInfo);
+    preinfo = "<h2>Developed by Arnav Deep.\n\n" +
+                "Visit the developer here: " +
+                "<a href='https://arnav-deep.github.io/'>arnav-deep.github.io\n\n</a></h2><div>";
+
+    fs.readFile('README.md', 'utf-8', function(err, data) {
+      res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
+      data = JSON.stringify(data);
+      data = data.slice(1, -1);
+      data = data.replace(/\\n/g, '\n');
+      data = data.replace(/\\/g, '');
+      data = data.replace("```\n[{", '[{');
+      data = data.replace("}]\n```", '}]');
+      data = data.replace(/":"/g, '": "');
+      data = data.replace(/" "/g, '", "');
+      data = md.render(data);
+      data = preinfo + data + "</div>";
+      res.write(data);
+      return res.end();
+    });
 });
 
 app.listen(PORT, () => {
